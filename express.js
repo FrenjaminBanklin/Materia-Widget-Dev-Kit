@@ -358,7 +358,7 @@ module.exports = (app) => {
 
 	// The play page frame that loads the widget player in an iframe
 	app.get(['/mdk/player/:instance?', '/mdk/preview/:instance?'], (req, res) => {
-		res.locals = Object.assign(res.locals, { template: 'player_mdk', instance: req.params.instance || 'demo'})
+		res.locals = Object.assign(res.locals, { template: 'player_mdk', instance: req.params.instance || "'demo'"})
 		res.render(res.locals.template)
 	});
 
