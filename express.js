@@ -153,11 +153,14 @@ var createApiWidgetData = (id) => {
 
 	widget.player = widget.files.player;
 	widget.creator = widget.files.creator;
+	widget.score_screen = widget.score.score_screen;
+
 	widget.clean_name = getWidgetCleanName();
 	// widget.dir = widget.clean_name + '/';
 	widget.dir = ''
 	widget.width = widget.general.width;
 	widget.height = widget.general.height;
+
 	return widget;
 };
 
@@ -533,6 +536,19 @@ module.exports = (app) => {
 	app.use('/api/json/widget_instances_get', (req, res) => {
 		const id = JSON.parse(req.body.data)[0][0];
 		res.json(createApiWidgetInstanceData(id));
+	});
+
+	app.use('/api/json/widget_instance_scores_get', (req, res) => {
+		res.json({
+			'scores': [
+				'demo'
+			]
+		});
+	});
+
+	app.use('/api/json/widget_instance_play_scores_get', (req, res) => {
+		let scoreData = getFileFromWebpack('scoreDemo.json');
+		res.json(JSON.parse(scoreData.toString()));
 	});
 
 	app.use('/api/json/widget_publish_perms_verify', (req, res) => {

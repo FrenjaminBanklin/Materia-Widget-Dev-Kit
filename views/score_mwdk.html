@@ -1,1 +1,53 @@
-Score screens not implemented 😞... yet
+<link rel="stylesheet" href="/mwdk/assets/css/ng-modal.css" type="text/css" />
+<link rel="stylesheet" href="/mwdk/assets/css/mwdk-download.css" type="text/css" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+<script src="/mwdk/assets/js/materia.js"></script>
+<script src="/mwdk/assets/js/student.js"></script>
+<script src="/mwdk/mwdk-assets/js/mwdk-package.js"></script>
+
+<div id="topbar">
+	<a class="logo"
+		href="/">
+		Materia Widget Developer Kit
+	</a>
+	<div class="tools">
+		<button class="edit_button orange"
+			onclick="location.href='/mwdk/player';">
+			Player (Demo)
+		</button>
+		<button class="edit_button orange"
+			onclick="location.href='/mwdk/widgets/1-mwdk/';">
+			Creator
+		</button>
+		<button id="downloadLink"
+			class="edit_button orange"
+			onclick="MWDK.Package.showPackageDownload();">
+			Download Package
+		</button>
+	</div>
+</div>
+
+<div id='modalbg'></div>
+
+{{! Change the mustache brackets to ERB style so that angular code won't get messed up }}
+{{=<% %>=}}
+<div ng-app="materia">
+	<article class="container"
+		ng-controller="scorePageController">
+		<header class="header score-header" ng-class="{ preview: isPreview }" ng-show="!restricted && !expired">
+			<h1 class="header-element widget-title" ng-style="headerStyle">Custom Score Screen</h1>
+		</header>
+
+		<div class="center">
+			<iframe id="container"
+				class="html"
+				scrolling="yes"
+				ng-attr-src="/scoreScreen.html"
+				fullscreen-dir>
+			</iframe>
+		</div>
+	</article>
+</div>
+<%={{ }}=%>
+{{! Return mustache to normal }}

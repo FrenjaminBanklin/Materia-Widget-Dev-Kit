@@ -13,12 +13,28 @@
 </script>
 
 <div id="topbar">
-	<a class="logo" href="/">Materia Widget Developer Kit</a>
+	<a class="logo"
+		href="/">
+		Materia Widget Developer Kit
+	</a>
 	<div class="tools">
-		<button id='qset_button' class="edit_button orange">Qset Panel</button>
-		<button id='storage_button' class="edit_button orange">Storage Panel</button>
-		<button class="edit_button orange" onclick="location.href='/mwdk/widgets/1-mwdk/';">Creator</button>
-		<button id="downloadLink" class="edit_button orange" onclick="MWDK.Package.showPackageDownload();">Download Package</button>
+		<button id='qset_button'
+			class="edit_button orange">
+			Qset Panel
+		</button>
+		<button id='storage_button'
+			class="edit_button orange">
+			Storage Panel
+		</button>
+		<button class="edit_button orange"
+			onclick="location.href='/mwdk/widgets/1-mwdk/';">
+			Creator
+		</button>
+		<button id="downloadLink"
+			class="edit_button orange"
+			onclick="MWDK.Package.showPackageDownload();">
+			Download Package
+		</button>
 	</div>
 </div>
 
@@ -28,16 +44,30 @@
 
 {{! Change the mustache brackets to ERB style so that angular code won't get messed up }}
 {{=<% %>=}}
-<div class="widget" ng-app="materia">
-	<section class="widget" ng-controller="playerCtrl"
+<div class="widget"
+	ng-app="materia">
+	<section class="widget"
+		ng-controller="playerCtrl"
 		ng-init="inst_id = '<% instance %>'"
 		ng-class="{ preview: isPreview }">
-		<header ng-if="isPreview" class="preview-bar"></header>
-		<div class="center" ng-show="type == 'flash' || type == 'html'">
-			<iframe ng-attr-src="{{ htmlPath }}" ng-if="type == 'html'" id="container" class="html" scrolling="yes" fullscreen-dir></iframe>
-			<div id="container" ng-if="type =='flash'"></div>
+		<header ng-if="isPreview"
+			class="preview-bar">
+		</header>
+		<div class="center"
+			ng-show="type == 'flash' || type == 'html'">
+			<iframe ng-attr-src="{{ htmlPath }}"
+				ng-if="type == 'html'"
+				id="container"
+				class="html"
+				scrolling="yes"
+				fullscreen-dir>
+			</iframe>
+			<div id="container"
+				ng-if="type =='flash'">
+			</div>
 		</div>
-		<div id="container" ng-if="type =='noflash'">
+		<div id="container"
+			ng-if="type =='noflash'">
 			No Flash
 		</div>
 	</section>
@@ -50,8 +80,16 @@
 			width="520px"
 			z-index="1000000">
 			<p>{{ alert.msg }}</p>
-			<button ng-hide="alert.fatal" ng-click="alert.msg = null" class="action_button">Okay</button>
-			<button ng-show="alert.enableLoginButton" ng-click="reloadPage()" class="action_button">Click Here to Login</button>
+			<button ng-hide="alert.fatal"
+				ng-click="alert.msg = null"
+				class="action_button">
+				Okay
+			</button>
+			<button ng-show="alert.enableLoginButton"
+				ng-click="reloadPage()"
+				class="action_button">
+				Click Here to Login
+			</button>
 		</modal-dialog>
 	</div>
 </div>
